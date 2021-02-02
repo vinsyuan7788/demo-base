@@ -1,6 +1,5 @@
 package com.demo.base.swagger.properties;
 
-import com.demo.base.swagger.config.SwaggerConfig;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
