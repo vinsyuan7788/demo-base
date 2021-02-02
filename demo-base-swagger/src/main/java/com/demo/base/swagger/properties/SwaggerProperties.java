@@ -1,5 +1,6 @@
 package com.demo.base.swagger.properties;
 
+import com.demo.base.swagger.config.SwaggerConfig;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -8,8 +9,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 01/25/2021
  */
 @Data
-@ConfigurationProperties(prefix = "demo.swagger")
+@ConfigurationProperties(prefix = SwaggerProperties.PREFIX)
 public class SwaggerProperties {
+
+    /**
+     *  The prefix used in Spring configuration
+     */
+    public static final String PREFIX = "demo.swagger";
 
     /**
      *  The base package for Swagger's documentation

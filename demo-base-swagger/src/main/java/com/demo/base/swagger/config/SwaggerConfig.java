@@ -40,22 +40,22 @@ public class SwaggerConfig {
     public Docket createRestApi() {
         // Get an API selector
         ApiSelectorBuilder selector = new Docket(DocumentationType.SWAGGER_2)
-                // Specify parameters for global use of the project
+                // Parameters for global use of the project
                 .globalOperationParameters(globalOperationParameters())
-                // Specify information for the project
+                // Information for the project
                 .apiInfo(apiInfo())
                 .select();
         // Create Swagger documentation
         Docket docket = selector
                 /*
-                 *  Specify the conditions that APIs satisfy for Swagger to process
+                 *  The conditions that APIs satisfy for Swagger to process
                  *  -- The APIs under specific base package
                  *  -- The APIs annotated with "@ApiOperation"
                  */
                 .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getScanPackage()))
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 /*
-                 *  Specify the APIs that satisfy above conditions to be documented or not by Swagger
+                 *  The APIs that satisfy above conditions to be documented or not by Swagger
                  *  -- PathSelectors.any(): The APIs that satisfy above conditions will be displayed on Swagger's documentation
                  *  -- PathSelectors.none(): The APIs that satisfy above conditions will never be displayed on Swagger's documentation
                  */

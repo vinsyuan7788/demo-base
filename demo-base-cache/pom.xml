@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>demo-base-redis</artifactId>
+    <artifactId>demo-base-cache</artifactId>
 
 
 </project>

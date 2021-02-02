@@ -10,13 +10,12 @@
     <version>1.0.0-SNAPSHOT</version>
     <modules>
         <module>demo-base-swagger</module>
-        <module>demo-base-redis</module>
-        <module>demo-base-rocketmq</module>
         <module>demo-base-utils</module>
-        <module>demo-base-mysql</module>
         <module>demo-base-es</module>
         <module>demo-base-zk</module>
-        <module>demo-base-oracle</module>
+        <module>demo-base-cache</module>
+        <module>demo-base-mq</module>
+        <module>demo-base-rdb</module>
     </modules>
 
     <properties>
