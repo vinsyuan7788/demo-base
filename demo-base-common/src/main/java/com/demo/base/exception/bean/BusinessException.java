@@ -1,5 +1,6 @@
 package com.demo.base.exception.bean;
 
+import com.demo.base.exception.base.BaseException;
 import com.demo.base.response.base.IResponseEnum;
 import com.demo.base.response.enums.ResponseEnum;
 
@@ -16,7 +17,7 @@ public class BusinessException extends BaseException {
     }
 
     public BusinessException(String message) {
-        super(ResponseEnum.BUSINESS_ERROR.getCode(), message);
+        super(ResponseEnum.BUSINESS_EXCEPTION.getCode(), message);
     }
 
     public BusinessException(IResponseEnum iResponseEnum, String message) {

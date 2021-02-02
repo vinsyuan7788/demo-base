@@ -1,9 +1,6 @@
-package com.demo.base.exception.bean;
+package com.demo.base.exception.base;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author Vince Yuan

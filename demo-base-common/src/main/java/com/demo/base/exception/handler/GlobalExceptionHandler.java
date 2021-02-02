@@ -1,16 +1,12 @@
 package com.demo.base.exception.handler;
 
-import com.demo.base.exception.bean.BaseException;
+import com.demo.base.exception.base.BaseException;
 import com.demo.base.exception.bean.BusinessException;
+import com.demo.base.exception.bean.DAOException;
 import com.demo.base.response.bean.CommonResponse;
 import com.demo.base.response.enums.ResponseEnum;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
@@ -21,12 +17,27 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @InitBinder
-    public void initBinder(WebDataBinder binder) { }
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder) { }
 
-    @ExceptionHandler({Exception.class})
-    public CommonResponse errorHandler(Exception e) {
-        return getCommonResponse(ResponseEnum.SYSTEM_ERROR.getCode(), e);
+    @ExceptionHandler({ Exception.class })
+    public CommonResponse exceptionHandler(Exception e) {
+        return getCommonResponse(ResponseEnum.SYSTEM_EXCEPTION.getCode(), e);
+    }
+
+    @ExceptionHandler({ BaseException.class })
+    public CommonResponse baseExceptionHandler(BaseException e) {
+        return getCommonResponse(ResponseEnum.SYSTEM_EXCEPTION.getCode(), e);
+    }
+
+    @ExceptionHandler({ BusinessException.class })
+    public CommonResponse businessExceptionHandler(BusinessException e) {
+        return getCommonResponse(e.getCode(), e);
+    }
+
+    @ExceptionHandler({ DAOException.class })
+    public CommonResponse daoExceptionHandler(DAOException e) {
+        return getCommonResponse(e.getCode(), e);
     }
 
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -98,17 +109,7 @@ public class GlobalExceptionHandler {
 //    public CommonResult daoErrorHandler(DAOException e) throws Exception {
 //        return returnErr(ReturnCode.ERROR_500.getCode(), (Exception)e);
 //    }
-
-    @ExceptionHandler({BaseException.class})
-    public CommonResponse baseErceptionHandler(BaseException e) {
-        return getCommonResponse(ResponseEnum.OPERATION_ERROR.getCode(), (Exception) e);
-    }
-
-    @ExceptionHandler({BusinessException.class})
-    public CommonResponse businessExceptionHandler(BusinessException e) {
-        return getCommonResponse(e.getCode(), e);
-    }
-
+//
 //    @ExceptionHandler({ServiceException.class})
 //    public CommonResult serviceErrorHandler(ServiceException e) throws Exception {
 //        return returnErr(ReturnCode.UN_SUCCESS.getCode(), (Exception)e);
