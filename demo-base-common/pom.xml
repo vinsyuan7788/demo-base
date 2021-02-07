@@ -13,62 +13,31 @@
 
     <properties>
         <commons-lang3.version>3.6</commons-lang3.version>
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <swagger-boostrap-ui.version>1.9.3</swagger-boostrap-ui.version>
-        <guava.version>27.1-jre</guava.version>
     </properties>
 
     <dependencies>
-        <!-- Apache Commaon Lang3 -->
+        <!-- Spring-Boot Suite -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- Apache Common -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
-        </dependency>
-
-        <!-- Swagger -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox-swagger2.version}</version>
-            <!--
-            <exclusions>
-                <exclusion>
-                    <artifactId>guava</artifactId>
-                    <groupId>com.google.guava</groupId>
-                </exclusion>
-            </exclusions>
-            -->
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox-swagger2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>swagger-bootstrap-ui</artifactId>
-            <version>${swagger-boostrap-ui.version}</version>
         </dependency>
 
         <!-- Guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
         </dependency>
-
-        <!--
-            Spring-boot configuration processor
-            == This dependency is not necessary
-            == See: https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/html/configuration-metadata.html#configuration-metadata-annotation-processor
-         -->
-        <!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        -->
     </dependencies>
 </project>
