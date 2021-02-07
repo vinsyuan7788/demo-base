@@ -3,6 +3,7 @@ package com.demo.base.response.bean;
 import com.demo.base.response.base.ToString;
 import com.demo.base.response.enums.ResponseEnum;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,12 +20,16 @@ import java.util.List;
 @AllArgsConstructor
 public class CommonResponse<T> extends ToString {
 
+    @ApiModelProperty("响应码")
     private int code;
 
+    @ApiModelProperty("响应信息")
     private String message;
 
+    @ApiModelProperty("响应数据")
     private List<T> data;
 
+    @ApiModelProperty("系统时间")
     private String systemTime;
 
     public CommonResponse(ResponseEnum responseEnum) {
