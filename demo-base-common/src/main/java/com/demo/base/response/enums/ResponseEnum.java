@@ -9,7 +9,7 @@ import com.demo.base.response.base.IResponseEnum;
 public enum ResponseEnum implements IResponseEnum {
 
     /*** 正常响应 ***/
-    NORMAL(100, "成功返回"),
+    NORMAL(100, "执行成功"),
     /*** 通用异常响应 ***/
     REQUEST_EXCEPTION(101, "请求异常"),
     REQUEST_IS_NULL(102, "请求为空"),
@@ -25,7 +25,10 @@ public enum ResponseEnum implements IResponseEnum {
     OPERATION_EXCEPTION(112, "操作异常"),
     DAO_EXCEPTION(113, "数据访问异常"),
     /*** 定制异常响应 ***/
-    PHONE_NUMBER_ENCRYPTION_EXCEPTION(201, "手机号码加密失败"),
+    PHONE_NUMBER_ENCRYPTION_EXCEPTION(201, "手机号码加密异常"),
+    INSERT_FAIL(301, "插入数据异常"),
+    UPDATE_FAIL(302, "更新数据异常"),
+    DELETE_FAIL(303, "删除数据异常"),
     ;
     private int code;
 

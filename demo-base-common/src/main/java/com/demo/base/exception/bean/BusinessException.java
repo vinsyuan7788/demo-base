@@ -10,22 +10,36 @@ import com.demo.base.response.enums.ResponseEnum;
  */
 public class BusinessException extends BaseException {
 
+    /***   Below are the constructors that keep the structure of parent class   ***/
     public BusinessException() {}
 
+    public BusinessException(String message) {
+        super(ResponseEnum.BUSINESS_EXCEPTION.getCode(), message);
+    }
+
+    /***   Below are the constructors that contains custom fields   ***/
     public BusinessException(IResponseEnum iResponseEnum) {
         super(iResponseEnum.getCode(), iResponseEnum.getMessage());
     }
 
-    public BusinessException(String message) {
-        super(ResponseEnum.BUSINESS_EXCEPTION.getCode(), message);
+    public BusinessException(IResponseEnum iResponseEnum, Exception exception) {
+        super(iResponseEnum.getCode(), iResponseEnum.getMessage(), exception);
     }
 
     public BusinessException(IResponseEnum iResponseEnum, String message) {
         super(iResponseEnum.getCode(), message);
     }
 
+    public BusinessException(IResponseEnum iResponseEnum, String message, Exception exception) {
+        super(iResponseEnum.getCode(), message, exception);
+    }
+
     public BusinessException(int code, String message) {
         super(code, message);
+    }
+
+    public BusinessException(int code, String message, Exception exception) {
+        super(code, message, exception);
     }
 
     public BusinessException(int code, String message, Throwable cause) {

@@ -32,12 +32,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({ BusinessException.class })
     public CommonResponse businessExceptionHandler(BusinessException e) {
-        return getCommonResponse(e.getCode(), e);
+        return getCommonResponse(e);
     }
 
     @ExceptionHandler({ DAOException.class })
     public CommonResponse daoExceptionHandler(DAOException e) {
-        return getCommonResponse(e.getCode(), e);
+        return getCommonResponse(e);
     }
 
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -195,11 +195,29 @@ public class GlobalExceptionHandler {
 //        return CollectionResult.failed(ReturnCode.ERROR_500.getCode(), ex.toString());
 //    }
 
-    private CommonResponse getCommonResponse(int code, Exception e) {
-        log.error(e.getMessage(), e);
+    private CommonResponse getCommonResponse(int code, Exception exception) {
+        log.error("=== Exception Found ===", exception);
         CommonResponse resp = new CommonResponse();
         resp.setCode(code);
-        resp.setMessage(e.getMessage());
+        resp.setMessage(exception.getMessage());
+        resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
+        return resp;
+    }
+
+    private CommonResponse getCommonResponse(int code, BaseException baseException) {
+        log.error("=== Exception Found ===", baseException.getException() != null ? baseException.getException() : baseException);
+        CommonResponse resp = new CommonResponse();
+        resp.setCode(code);
+        resp.setMessage(baseException.getMessage());
+        resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
+        return resp;
+    }
+
+    private CommonResponse getCommonResponse(BaseException baseException) {
+        log.error("=== Exception Found ===", baseException.getException() != null ? baseException.getException() : baseException);
+        CommonResponse resp = new CommonResponse();
+        resp.setCode(baseException.getCode());
+        resp.setMessage(baseException.getMessage());
         resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
         return resp;
     }
