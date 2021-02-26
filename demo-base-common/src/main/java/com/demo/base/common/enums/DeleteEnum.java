@@ -1,4 +1,4 @@
-package com.demo.base.enums;
+package com.demo.base.common.enums;
 
 /**
  * @author Vince Yuan
@@ -9,7 +9,6 @@ public enum DeleteEnum {
     NORMAL("normal", "正常"),
     DELETE("delete", "删除")
     ;
-
     private String code;
 
     private String description;

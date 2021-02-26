@@ -1,8 +1,8 @@
-package com.demo.base.exception.bean;
+package com.demo.base.common.exception.bean;
 
-import com.demo.base.exception.base.BaseException;
-import com.demo.base.response.base.IResponseEnum;
-import com.demo.base.response.enums.ResponseEnum;
+import com.demo.base.common.exception.base.BaseException;
+import com.demo.base.common.response.base.IResponseEnum;
+import com.demo.base.common.response.enums.ResponseEnum;
 
 /**
  * @author Vince Yuan

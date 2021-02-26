@@ -1,4 +1,4 @@
-package com.demo.base.response.base;
+package com.demo.base.common.response.base;
 
 /**
  * @author Vince Yuan

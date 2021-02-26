@@ -1,4 +1,4 @@
-package com.demo.base.response.base;
+package com.demo.base.common.response.base;
 
 import java.io.Serializable;
 import org.apache.commons.lang3.builder.ToStringBuilder;

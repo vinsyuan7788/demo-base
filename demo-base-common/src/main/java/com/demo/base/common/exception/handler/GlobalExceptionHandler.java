@@ -1,10 +1,10 @@
-package com.demo.base.exception.handler;
+package com.demo.base.common.exception.handler;
 
-import com.demo.base.exception.base.BaseException;
-import com.demo.base.exception.bean.BusinessException;
-import com.demo.base.exception.bean.DAOException;
-import com.demo.base.response.bean.CommonResponse;
-import com.demo.base.response.enums.ResponseEnum;
+import com.demo.base.common.exception.base.BaseException;
+import com.demo.base.common.exception.bean.BusinessException;
+import com.demo.base.common.exception.bean.DAOException;
+import com.demo.base.common.response.bean.CommonResponse;
+import com.demo.base.common.response.enums.ResponseEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

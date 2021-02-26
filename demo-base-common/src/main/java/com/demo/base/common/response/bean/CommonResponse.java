@@ -1,8 +1,7 @@
-package com.demo.base.response.bean;
+package com.demo.base.common.response.bean;
 
-import com.demo.base.response.base.IResponseEnum;
-import com.demo.base.response.base.ToString;
-import com.demo.base.response.enums.ResponseEnum;
+import com.demo.base.common.response.base.IResponseEnum;
+import com.demo.base.common.response.base.ToString;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

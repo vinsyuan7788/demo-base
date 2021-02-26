@@ -1,13 +1,13 @@
-package com.demo.base.utils;
+package com.demo.base.common.utils;
 
 /**
  * @author Vince Yuan
  * @date 02/02/2021
  */
-public class MapUtils {
+public class StringUtils {
 
     /**
      *  Privatize no-args constructor
      */
-    private MapUtils() { }
+    private StringUtils() { }
 }

@@ -1,4 +1,4 @@
-package com.demo.base.exception.base;
+package com.demo.base.common.exception.base;
 
 import lombok.Data;
 

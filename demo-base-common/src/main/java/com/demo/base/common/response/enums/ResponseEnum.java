@@ -1,6 +1,6 @@
-package com.demo.base.response.enums;
+package com.demo.base.common.response.enums;
 
-import com.demo.base.response.base.IResponseEnum;
+import com.demo.base.common.response.base.IResponseEnum;
 
 /**
  * @author Vince Yuan
@@ -9,7 +9,7 @@ import com.demo.base.response.base.IResponseEnum;
 public enum ResponseEnum implements IResponseEnum {
 
     /*** 正常响应 ***/
-    NORMAL(100, "执行成功"),
+    SUCCESS(100, "执行成功"),
     /*** 通用异常响应 ***/
     REQUEST_EXCEPTION(101, "请求异常"),
     REQUEST_IS_NULL(102, "请求为空"),
