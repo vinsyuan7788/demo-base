@@ -17,7 +17,7 @@ public class BaseException extends RuntimeException {
 
     /**
      *  To store the exception <br/>
-     *  -- Which can be retrieved for further processing (e.g. {@link com.demo.base.exception.handler.GlobalExceptionHandler})
+     *  -- Which can be retrieved for further processing (e.g. {@link com.demo.base.common.exception.handler.GlobalExceptionHandler})
      */
     private Exception exception;
 

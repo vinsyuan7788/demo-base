@@ -10,12 +10,12 @@ import java.text.SimpleDateFormat;
 public class DateUtils {
 
     /**
-     *  日期格式：标准，从年到秒
+     *  Date format: standard; from year to second
      */
     public static final DateFormat DATE_FORMAT_STANDARD_YEAR_TO_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
-     *  日期格式：连续，从年到毫秒
+     *  Date format: consecutive; from year to millisecond
      */
     public static final DateFormat DATE_FORMAT_CONSECUTIVE_YEAR_TO_MILLIS = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 

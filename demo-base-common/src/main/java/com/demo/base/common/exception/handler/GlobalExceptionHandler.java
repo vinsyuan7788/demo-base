@@ -5,9 +5,12 @@ import com.demo.base.common.exception.bean.BusinessException;
 import com.demo.base.common.exception.bean.DAOException;
 import com.demo.base.common.response.bean.CommonResponse;
 import com.demo.base.common.response.enums.ResponseEnum;
+import com.demo.base.common.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.Date;
 
 /**
  * @author Vince Yuan
@@ -200,7 +203,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(code);
         resp.setMessage(exception.getMessage());
-        resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
         return resp;
     }
 
@@ -209,7 +212,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(code);
         resp.setMessage(baseException.getMessage());
-        resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
         return resp;
     }
 
@@ -218,7 +221,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(baseException.getCode());
         resp.setMessage(baseException.getMessage());
-        resp.setSystemTime(String.valueOf(System.currentTimeMillis()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
         return resp;
     }
 
