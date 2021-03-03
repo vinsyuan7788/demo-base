@@ -203,7 +203,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(code);
         resp.setMessage(exception.getMessage());
-        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
         return resp;
     }
 
@@ -212,7 +212,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(code);
         resp.setMessage(baseException.getMessage());
-        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
         return resp;
     }
 
@@ -221,7 +221,7 @@ public class GlobalExceptionHandler {
         CommonResponse resp = new CommonResponse();
         resp.setCode(baseException.getCode());
         resp.setMessage(baseException.getMessage());
-        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_SECOND.format(new Date()));
+        resp.setSystemTime(DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
         return resp;
     }
 

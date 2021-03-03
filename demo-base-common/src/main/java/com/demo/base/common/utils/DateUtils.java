@@ -10,9 +10,9 @@ import java.text.SimpleDateFormat;
 public class DateUtils {
 
     /**
-     *  Date format: standard; from year to second
+     *  Date format: standard; from year to millisecond
      */
-    public static final DateFormat DATE_FORMAT_STANDARD_YEAR_TO_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final DateFormat DATE_FORMAT_STANDARD_YEAR_TO_MILLIS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
     /**
      *  Date format: consecutive; from year to millisecond
