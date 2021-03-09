@@ -2,6 +2,7 @@ package com.demo.base.common.response.bean;
 
 import com.demo.base.common.response.base.IResponseEnum;
 import com.demo.base.common.response.base.ToString;
+import com.demo.base.common.utils.DateUtils;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,19 +39,19 @@ public class CommonResponse<T> extends ToString {
     public CommonResponse(IResponseEnum iResponseEnum) {
         this.code = iResponseEnum.getCode();
         this.message = iResponseEnum.getMessage();
-        this.systemTime = String.valueOf(System.currentTimeMillis());
+        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
     }
 
     public CommonResponse(int code, String message) {
         this.code = code;
         this.message = message;
-        this.systemTime = String.valueOf(System.currentTimeMillis());
+        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
     }
 
     public CommonResponse(int code, String message, List<T> data) {
         this.code = code;
         this.message = message;
         this.data = data;
-        this.systemTime = String.valueOf(System.currentTimeMillis());
+        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
     }
 }
