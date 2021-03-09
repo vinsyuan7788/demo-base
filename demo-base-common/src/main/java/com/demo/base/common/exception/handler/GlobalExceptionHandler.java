@@ -200,17 +200,17 @@ public class GlobalExceptionHandler {
 
     private CommonResponse getCommonResponse(int code, Exception exception) {
         log.error("=== Exception Found ===", exception);
-        return new CommonResponse(code, exception.getMessage());
+        return new CommonResponse(code, exception.getMessage(), DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
     }
 
     private CommonResponse getCommonResponse(int code, BaseException baseException) {
         log.error("=== Exception Found ===", baseException.getException() != null ? baseException.getException() : baseException);
-        return new CommonResponse(code, baseException.getMessage());
+        return new CommonResponse(code, baseException.getMessage(), DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
     }
 
     private CommonResponse getCommonResponse(BaseException baseException) {
         log.error("=== Exception Found ===", baseException.getException() != null ? baseException.getException() : baseException);
-        return new CommonResponse(baseException.getCode(), baseException.getMessage());
+        return new CommonResponse(baseException.getCode(), baseException.getMessage(), DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date()));
     }
 
 //    private CommonResult returnErr(Exception e, String errMsg, int code) {

@@ -39,19 +39,22 @@ public class CommonResponse<T> extends ToString {
     public CommonResponse(IResponseEnum iResponseEnum) {
         this.code = iResponseEnum.getCode();
         this.message = iResponseEnum.getMessage();
-        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
     }
 
     public CommonResponse(int code, String message) {
         this.code = code;
         this.message = message;
-        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
     }
 
     public CommonResponse(int code, String message, List<T> data) {
         this.code = code;
         this.message = message;
         this.data = data;
-        this.systemTime = DateUtils.DATE_FORMAT_STANDARD_YEAR_TO_MILLIS.format(new Date());
+    }
+
+    public CommonResponse(int code, String message, String systemTime) {
+        this.code = code;
+        this.message = message;
+        this.systemTime = systemTime;
     }
 }
