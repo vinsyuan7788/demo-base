@@ -29,6 +29,7 @@
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.6</lombok.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger-models.version>1.5.21</swagger-models.version>
         <swagger-boostrap-ui.version>1.9.3</swagger-boostrap-ui.version>
         <guava.version>20.0</guava.version>
         <commons-lang3.version>3.6</commons-lang3.version>
@@ -138,6 +139,29 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>${springfox-swagger2.version}</version>
+                <exclusions>
+                    <!-- Excluded if different versions of Guava conflict -->
+                    <!--
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                    -->
+                    <!--
+                        Excluded if Swagger throws an exception for the documentation of fields whose type can be cast to "integer" (e.g., Integer, Long, etc.) when Swagger2 starts up if no example value is set:
+                        == It will happen when Swagger2 version is 2.9.2, in which swagger-models version is 1.5.20
+                    -->
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Included to replace the original version that will bring above-mentioned problem -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-models.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
