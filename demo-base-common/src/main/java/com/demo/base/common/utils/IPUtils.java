@@ -1,6 +1,5 @@
 package com.demo.base.common.utils;
 
-import java.util.function.Function;
 import com.demo.base.common.exception.base.BaseException;
 
 import java.net.InetAddress;
