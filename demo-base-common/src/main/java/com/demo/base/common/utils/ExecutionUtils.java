@@ -26,7 +26,7 @@ public class ExecutionUtils {
      *
      * @param function the function to be executed
      * @param argument the argument of the function
-     * @param runtimeException the runtime exception to be processed
+     * @param runtimeException the runtime exception that may be thrown by the function to be processed
      * @param <T> the type of parameter
      * @param <R> the type of result to be returned
      * @return the result returned from the function
@@ -48,7 +48,7 @@ public class ExecutionUtils {
      * @param biFunction the function to be executed
      * @param argument1 the 1st argument of the function
      * @param argument2 the 2nd argument of the function
-     * @param runtimeException the runtime exception to be processed
+     * @param runtimeException the runtime exception that may be thrown by the function to be processed
      * @param <T> the type of 1st parameter
      * @param <U> the type of 2nd parameter
      * @param <R> the type of result to be returned
