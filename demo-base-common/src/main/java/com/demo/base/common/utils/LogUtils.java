@@ -56,6 +56,16 @@ public class LogUtils {
     }
 
     /**
+     *  Log the parameters
+     *
+     * @param parameters the parameters to be logged, where name is the name for the parameter to be logged and value is the value of the parameter
+     * @return the logged parameters
+     */
+    public static String getLogMessage(ParametersToLog parameters) {
+        return getLogMessage(null, null, parameters);
+    }
+
+    /**
      *  Get a log message with parameters
      *
      * @param methodNameOrMessage the method name or the message to be logged
@@ -120,15 +130,16 @@ public class LogUtils {
      * @return if message can be logged
      */
     private static boolean messageCanBeLogged(String methodName, String message) {
-        if (StringUtils.isNotBlank(methodName) && StringUtils.isNotBlank(message)) {
-            return true;
-        } else if (StringUtils.isNotBlank(methodName) && StringUtils.isBlank(message)) {
-            return true;
-        } else if (StringUtils.isBlank(methodName) && StringUtils.isNotBlank(message)) {
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+//        if (StringUtils.isNotBlank(methodName) && StringUtils.isNotBlank(message)) {
+//            return true;
+//        } else if (StringUtils.isNotBlank(methodName) && StringUtils.isBlank(message)) {
+//            return true;
+//        } else if (StringUtils.isBlank(methodName) && StringUtils.isNotBlank(message)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
     /**
