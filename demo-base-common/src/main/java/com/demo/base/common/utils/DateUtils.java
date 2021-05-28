@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
+ *  This class is used for Date utility
+ *
  * @author Vince Yuan
  * @date 02/02/2021
  */

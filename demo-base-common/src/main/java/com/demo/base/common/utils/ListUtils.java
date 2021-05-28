@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ *  This class is used for List utility
+ *
  * @author Vince Yuan
  * @date 02/02/2021
  */
@@ -15,16 +17,25 @@ public class ListUtils {
      */
     private ListUtils() { }
 
+    public static <T> boolean isEmpty(List<T> list) {
+        return ObjectUtils.isNull(list) || list.isEmpty();
+    }
+
+    public static <T> boolean isNotEmpty(List<T> list) {
+        return !isEmpty(list);
+    }
+
     /**
      *  Split the list into batch lists
      *
-     * @param list
-     * @param batchSize
-     * @param <T>
-     * @return
+     * @param list the list to be split
+     * @param batchSize the size of each batch
+     * @param <T> the type of the element in the list to be split
+     * @return the split lists
      */
     public static <T> List<List<T>> splitBatch(List<T> list, Integer batchSize) {
-        if (list == null) {
+
+        if (isEmpty(null)) {
             return new ArrayList<>();
         }
         if (batchSize == null || batchSize >= list.size()) {
