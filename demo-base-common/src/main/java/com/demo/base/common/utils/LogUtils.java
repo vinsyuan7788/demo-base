@@ -97,10 +97,6 @@ public class LogUtils {
      * @return the log message
      */
     public static String getLogMessage(String methodName, String message, ParametersToLog parameters) {
-        if (!messageCanBeLogged(methodName, message)) {
-            log.info(getLogMessage("getLog", BLANK_LOG_MESSAGE, parameters));
-            return StringUtils.BLANK_STRING;
-        }
         StringBuilder log = new StringBuilder();
         log.append(MESSAGE_LOG_PREFIX);
         if (StringUtils.isNotBlank(methodName)) {
@@ -120,26 +116,6 @@ public class LogUtils {
         }
         log.append(MESSAGE_LOG_SUFFIX);
         return log.toString();
-    }
-
-    /**
-     *  Predicate if the message can be logged
-     *
-     * @param methodName the name of the method to log message
-     * @param message the message to be logged
-     * @return if message can be logged
-     */
-    private static boolean messageCanBeLogged(String methodName, String message) {
-        return true;
-//        if (StringUtils.isNotBlank(methodName) && StringUtils.isNotBlank(message)) {
-//            return true;
-//        } else if (StringUtils.isNotBlank(methodName) && StringUtils.isBlank(message)) {
-//            return true;
-//        } else if (StringUtils.isBlank(methodName) && StringUtils.isNotBlank(message)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 
     /**
