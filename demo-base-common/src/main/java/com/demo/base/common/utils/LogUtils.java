@@ -36,9 +36,14 @@ public class LogUtils {
     public static final String PARAMETER_NAME_AND_VALUE_LOG_SEPARATOR = ": ";
 
     /**
-     *  The message for blank log
+     *  The message for null parameters
      */
-    private static final String BLANK_LOG_MESSAGE = "Necessary parameters are empty, hence blank log is returned";
+    private static final String NULL_PARAMETERS_MESSAGE = "Parameters to log are null, hence blank log message is returned";
+
+    /**
+     *  The message for null parameter value
+     */
+    private static final String NULL_PARAMETER_VALUE_MESSAGE = "Parameter value is null, hence do not need to get log message for it";
 
     /**
      *  Privatize no-args constructor
@@ -97,25 +102,25 @@ public class LogUtils {
      * @return the log message
      */
     public static String getLogMessage(String methodName, String message, ParametersToLog parameters) {
-        StringBuilder log = new StringBuilder();
-        log.append(MESSAGE_LOG_PREFIX);
+        StringBuilder logMessage = new StringBuilder();
+        logMessage.append(MESSAGE_LOG_PREFIX);
         if (StringUtils.isNotBlank(methodName)) {
-            log.append(methodName);
+            logMessage.append(methodName);
         }
         if (StringUtils.isNotBlank(message)) {
             if (StringUtils.isNotBlank(methodName)) {
-                log.append(MESSAGE_LOG_SEPARATOR);
+                logMessage.append(MESSAGE_LOG_SEPARATOR);
             }
-            log.append(message);
+            logMessage.append(message);
         }
         if (ObjectUtils.isNotNull(parameters)) {
             if (methodNameOrMessageExists(methodName, message)) {
-                log.append(MESSAGE_LOG_SEPARATOR);
+                logMessage.append(MESSAGE_LOG_SEPARATOR);
             }
-            log.append(getParameterLog(parameters));
+            logMessage.append(getParameterLog(parameters));
         }
-        log.append(MESSAGE_LOG_SUFFIX);
-        return log.toString();
+        logMessage.append(MESSAGE_LOG_SUFFIX);
+        return logMessage.toString();
     }
 
     /**
@@ -137,18 +142,27 @@ public class LogUtils {
      */
     private static String getParameterLog(ParametersToLog parameters) {
         if (ObjectUtils.isNull(parameters)) {
-            log.info(getLogMessage("getParameterLog", BLANK_LOG_MESSAGE, parameters));
+            log.info(getLogMessage("getParameterLog", NULL_PARAMETERS_MESSAGE));
             return StringUtils.BLANK_STRING;
         }
-        StringBuilder log = new StringBuilder();
+        StringBuilder logMessage = new StringBuilder();
         List<ParameterNameAndValueToLog> parameterNamesAndValuesToLog = parameters.getParameterNamesAndValues();
         for (int i = 0; i < parameterNamesAndValuesToLog.size(); i++) {
             ParameterNameAndValueToLog parameterNameAndValueToLog = parameterNamesAndValuesToLog.get(i);
-            log.append(parameterNameAndValueToLog.getName() + PARAMETER_NAME_AND_VALUE_LOG_SEPARATOR + parameterNameAndValueToLog.getValue());
+            String parameterName = parameterNameAndValueToLog.getName();
+            Object parameterValue = parameterNameAndValueToLog.getValue();
+            if (StringUtils.isNotBlank(parameterName) && ObjectUtils.isNotNull(parameterValue)) {
+                logMessage.append(parameterName + PARAMETER_NAME_AND_VALUE_LOG_SEPARATOR + parameterNameAndValueToLog.getValue());
+            } else if (StringUtils.isBlank(parameterName) && ObjectUtils.isNotNull(parameterValue)) {
+                logMessage.append(parameterNameAndValueToLog.getValue());
+            } else {
+                log.info(getLogMessage("getParameterLog", NULL_PARAMETER_VALUE_MESSAGE));
+                continue;
+            }
             if (i < parameterNamesAndValuesToLog.size() - 1) {
-                log.append(MESSAGE_LOG_SEPARATOR);
+                logMessage.append(MESSAGE_LOG_SEPARATOR);
             }
         }
-        return log.toString();
+        return logMessage.toString();
     }
 }
