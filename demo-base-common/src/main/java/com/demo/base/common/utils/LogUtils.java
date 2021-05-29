@@ -75,11 +75,10 @@ public class LogUtils {
      *
      * @param methodNameOrMessage the method name or the message to be logged
      * @param parameters the parameters to be logged, where name is the name for the parameter to be logged and value is the value of the parameter
-     * @param isMethodName if the first argument represents method name
      * @return the log message
      */
-    public static String getLogMessage(String methodNameOrMessage, ParametersToLog parameters, boolean isMethodName) {
-        return isMethodName ? getLogMessage(methodNameOrMessage, null, parameters) : getLogMessage(null, methodNameOrMessage, parameters);
+    public static String getLogMessage(String methodNameOrMessage, ParametersToLog parameters) {
+        return isMethodName(methodNameOrMessage) ? getLogMessage(methodNameOrMessage, null, parameters) : getLogMessage(null, methodNameOrMessage, parameters);
     }
 
     /**
@@ -164,5 +163,20 @@ public class LogUtils {
             }
         }
         return logMessage.toString();
+    }
+
+    /**
+     *  Predicate if the string is method name or message
+     *
+     * @param methodNameOrMessage the method name or the message to be logged
+     * @return if the input string is method name
+     */
+    private static boolean isMethodName(String methodNameOrMessage) {
+        /**
+         *  Since the format of log message with method name only and the one with message only are the same
+         *  -- Here do not need to distinguish method name and message to log the message
+         *  -- Simply to say, true can be always returned
+         */
+        return true;
     }
 }
