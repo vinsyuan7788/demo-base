@@ -1,4 +1,4 @@
-package com.demo.base.swagger.config;
+package com.demo.base.swagger.configuration;
 
 import com.demo.base.swagger.enums.ApiDisplayOrNotEnum;
 import com.demo.base.swagger.properties.SwaggerProperties;
@@ -31,7 +31,7 @@ import java.util.List;
 @EnableSwagger2
 @Configuration
 @EnableConfigurationProperties({ SwaggerProperties.class })
-public class SwaggerConfig {
+public class SwaggerConfiguration {
 
     @Autowired
     private SwaggerProperties swaggerProperties;
