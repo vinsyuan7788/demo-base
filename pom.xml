@@ -17,6 +17,8 @@
         <module>demo-base-rdb</module>
         <module>demo-base-common</module>
     </modules>
+    <name>demo-server</name>
+    <description>Demo Base Project as Bottom-ware</description>
 
     <properties>
         <!-- Versions for Basic Dependencies -->

@@ -1,2 +1,2 @@
 # demo-base
-A demo base project that may provide various support for superstructure (i.e., parent) project
+A demo base project that serves as bottom-ware by providing various support for superstructure (i.e., parent) appliations
