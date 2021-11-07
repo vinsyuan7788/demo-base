@@ -1,4 +1,4 @@
-package com.demo.base.common.utils.utils;
+package com.demo.base.common.utils.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.demo.base.common.utils;
 
-import com.demo.base.common.utils.utils.ParameterNameAndValueToLog;
-import com.demo.base.common.utils.utils.ParametersToLog;
+import com.demo.base.common.utils.bean.ParameterNameAndValueToLog;
+import com.demo.base.common.utils.bean.ParametersToLog;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
