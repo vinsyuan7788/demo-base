@@ -34,14 +34,10 @@ public class ListUtils {
      * @return the split lists
      */
     public static <T> List<List<T>> splitBatch(List<T> list, Integer batchSize) {
-
-        if (isEmpty(null)) {
-            return new ArrayList<>();
-        }
-        if (batchSize == null || batchSize >= list.size()) {
-            return Collections.singletonList(list);
-        }
         List<List<T>> lists = new ArrayList<>();
+        if (isEmpty(list)) {
+            return lists;
+        }
         int batchNumber = list.size() / batchSize + 1;
         for (int i = 0; i < batchNumber; i++) {
             if (i < batchNumber - 1) {
