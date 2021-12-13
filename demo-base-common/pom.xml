@@ -11,10 +11,6 @@
 
     <artifactId>demo-base-common</artifactId>
 
-    <properties>
-        <commons-lang3.version>3.6</commons-lang3.version>
-    </properties>
-
     <dependencies>
         <!-- Spring-Boot Suite -->
         <dependency>
